@@ -8,6 +8,11 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
+
+import java.util.Arrays;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
@@ -19,21 +24,12 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable);
-//                .authorizeHttpRequests(authorize -> authorize
-//                        .requestMatchers("/api/customer/").permitAll()
-//                        .requestMatchers("/api/user/").permitAll()
-//                        .requestMatchers("/api/customer/all").permitAll()
-//                        .requestMatchers("/api/customer/delete/{id}").permitAll()
-//                        .requestMatchers("/api/customer/add").permitAll()
-//                        .requestMatchers("/api/customer/update").permitAll()
-//                        .requestMatchers("/api/user/register").permitAll()
-//                        .requestMatchers("/api/user/login").permitAll()// Allow public access to /save endpoint
-//                        .anyRequest().authenticated() // Require authentication for other endpoints
-//                )
-//                .httpBasic(withDefaults()); // Enable basic authentication with defaults
+
 
         return http.build();
     }
+
+
 
     @Bean
     public PasswordEncoder passwordEncoder() {

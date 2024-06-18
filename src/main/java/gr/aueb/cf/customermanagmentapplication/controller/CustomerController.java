@@ -97,9 +97,15 @@ public class CustomerController {
     @PutMapping("/update")
     public ResponseEntity<Customer> updateCustomer(
             @Parameter(description = "Customer object to be updated", required = true)
-            @RequestBody Customer customer) {
-        Customer updatedCustomer = customerService.updateCustomer(customer);
-        return new ResponseEntity<>(updatedCustomer, HttpStatus.OK);
+            @RequestBody CustomerDTO customerDTO) {
+        User user = userService.getUserById(Long.parseLong(customerDTO.getUserId()));
+        if (user != null) {
+            Customer newCustomer = customerService.updateCustomer(user, customerDTO);
+            return new ResponseEntity<>(newCustomer, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
     }
 
     @Operation(summary = "Delete a customer", description = "Delete a customer by their ID")

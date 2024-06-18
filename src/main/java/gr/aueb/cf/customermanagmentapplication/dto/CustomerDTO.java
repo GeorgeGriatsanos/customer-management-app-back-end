@@ -34,5 +34,6 @@ public class CustomerDTO implements Serializable {
     private String orderNumber;
 
     private String userId;
+    private String uuId;
 }
 

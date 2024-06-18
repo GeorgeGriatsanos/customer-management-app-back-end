@@ -53,8 +53,25 @@ public class CustomerService {
         return customerRepository.findAllByUserId(id);
     }
 
-    public Customer updateCustomer(Customer customer) {
-        return customerRepository.save(customer);
+    public Customer updateCustomer(User user, CustomerDTO customerDTO) {
+        Customer customerToBeSaved = new Customer(
+                customerDTO.getId(),
+                customerDTO.getTaxIdNumber(),
+                customerDTO.getFirstname(),
+                customerDTO.getLastname(),
+                customerDTO.getEmail(),
+                customerDTO.getPhoneNumber(),
+                customerDTO.getCity(),
+                customerDTO.getAddress(),
+                customerDTO.getOrderDate(),
+                customerDTO.getDeliveryDate(),
+                customerDTO.getPaymentInAdvance(),
+                customerDTO.getTotalAmount(),
+                customerDTO.getBalance(),
+                UUID.randomUUID().toString(),
+                user);
+        customerToBeSaved.setUser(user);
+        return customerRepository.save(customerToBeSaved);
     }
 
     public Customer findCustomerById(Long id) {
