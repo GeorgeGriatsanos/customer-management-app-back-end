@@ -61,4 +61,9 @@ public class UserServiceImpl implements IUserService {
     public boolean existsByUsername(String username) {
         return userRepository.existsByUsername(username);
     }
+
+    public boolean checkEmailExists(String email) {
+        // Check if email exists in database
+        return userRepository.existsByEmail(email);
+    }
 }

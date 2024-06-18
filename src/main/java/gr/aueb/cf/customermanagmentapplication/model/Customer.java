@@ -1,5 +1,6 @@
 package gr.aueb.cf.customermanagmentapplication.model;
 
+import com.fasterxml.jackson.databind.DatabindException;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Setter

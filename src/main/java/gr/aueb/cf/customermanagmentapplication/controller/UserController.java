@@ -63,4 +63,9 @@ public class UserController {
         boolean exists = userService.existsByUsername(username); // Implement this method in your UserService
         return ResponseEntity.ok(exists);
     }
+
+    @GetMapping("/check-email/{email}")
+    public boolean checkEmailExists(@PathVariable String email) {
+        return userService.checkEmailExists(email);
+    }
 }

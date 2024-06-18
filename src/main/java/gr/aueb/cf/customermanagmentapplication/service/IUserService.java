@@ -13,5 +13,7 @@ public interface IUserService {
     User getUserById(Long userId); // Add this method declaration
 
     boolean existsByUsername(String username);
+
+    boolean checkEmailExists(String email);
 }
 
