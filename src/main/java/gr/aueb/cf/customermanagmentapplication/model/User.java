@@ -23,10 +23,6 @@ public class User {
     private String email;
     private String password;
 
-//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    private List<Customer> customers = new ArrayList<>();
 
-//    public User(Long id, String username, String email, String encode) {
-//    }
 }
 

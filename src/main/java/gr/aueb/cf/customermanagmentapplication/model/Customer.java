@@ -39,6 +39,6 @@ public class Customer implements Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user; // Reference to the User entity
+    private User user;
 }
 

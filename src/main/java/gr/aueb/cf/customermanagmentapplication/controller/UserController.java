@@ -60,7 +60,7 @@ public class UserController {
     }
     @GetMapping("/checkUsername/{username}")
     public ResponseEntity<Boolean> checkUsernameExists(@PathVariable String username) {
-        boolean exists = userService.existsByUsername(username); // Implement this method in your UserService
+        boolean exists = userService.existsByUsername(username);
         return ResponseEntity.ok(exists);
     }
 
