@@ -18,7 +18,7 @@ This repository contains the backend implementation of a Customer Management App
 
 ## Technologies Used
 
-- Java 11
+- Java 17
 - Spring Boot 2.5.0
 - Swagger 3.0 for API documentation
 - MySQL (or your preferred database)
